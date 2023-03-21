@@ -52,13 +52,14 @@ export default function Login() {
           style={styles.textInput}
           type="email"
           onChange={(e) => setEmail(e.target.value)}
+          keyboardType="email-address"
         />
         <TextInput
           require
           placeholder="password"
           placeholderTextColor="white"
           style={styles.textInput}
-          type="password"
+          secureTextEntry={true}
           onChange={(e) => setPassword(e.target.value)}
         />
       </View>

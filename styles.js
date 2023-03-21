@@ -52,6 +52,25 @@ const styles = StyleSheet.create({
   dropdownText:{
         color: "#4dedf570 ", 
         textAlign:"center"  
+     
+  },
+  dropdown1BtnStyle:{
+    backgroundColor: "#4dedf570",
+    marginHorizontal: 20,
+    marginVertical: 10,
+    borderRadius: 20,
+width: "88%",
+
+  },
+  dropdown1BtnTxtStyle: {color: 'white', textAlign: 'left'},
+  dropdown1DropdownStyle: {backgroundColor: '#16202a'},
+  dropdown1RowStyle: {backgroundColor: '#16202a', borderBottomColor: '#C5C5C5',marginHorizontal:5},
+  dropdown1RowTxtStyle: {color: 'white', textAlign: 'center'},
+  textKpi:{
+    textAlign: 'center',
+    color: 'white',
+    fontSize:25
   }
+  
 });
 export default styles;

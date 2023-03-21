@@ -1,63 +1,67 @@
 import styles from "../styles";
-import { Text, View, Dimensions, TextInput } from "react-native";
-import { SelectList } from "react-native-dropdown-select-list";
+import { Text, View, Dimensions, TextInput, Button, Platform } from "react-native";
+import SelectDropdown from "react-native-select-dropdown";
 import { useState } from "react";
-import DateField from 'react-native-datefield';
 
 export default function Kpi() {
-  const { height, width } = Dimensions.get("window");
-  const [selected, setSelected] = useState("");
-  const data = [
-    { key: "1", value: "Mobiles" },
-    { key: "2", value: "Appliances" },
-    { key: "3", value: "Cameras" },
-    { key: "4", value: "Computers" },
-    { key: "5", value: "Vegetables" },
-    { key: "6", value: "Diary Products" },
-    { key: "7", value: "Drinks" },
-  ];
 
+
+  const countries = ["Egypt", "Canada", "Australia", "Ireland"];
+  const [isPickerShow, setIsPickerShow] = useState(false);
+  const [date, setDate] = useState(new Date(Date.now()));
+
+  const showPicker = () => {
+    setIsPickerShow(true);
+  };
+
+  const onChange = (event, value) => {
+    setDate(value);
+    if (Platform.OS === 'android') {
+      setIsPickerShow(false);
+    }
+  };
+
+ 
   return (
     <View style={styles.HomeContainer}>
-      <View >
-        <SelectList
-          setSelected={(val) => setSelected(val)}
-          data={data}
-         
-          save="value"
-          inputStyles={styles.dropdownText}
-          boxStyles={styles.form}
+      <Text style={styles.textKpi}>Add Evaluation To Employee</Text>
+      <View>
+        <SelectDropdown
+          buttonStyle={styles.dropdown1BtnStyle}
+          buttonTextStyle={styles.dropdown1BtnTxtStyle}
+          data={countries}
+          dropdownStyle={styles.dropdown1DropdownStyle}
+          rowStyle={styles.dropdown1RowStyle}
+          rowTextStyle={styles.dropdown1RowTxtStyle}
+          defaultButtonText={'Select Kpi'}
         />
       </View>
-      <View >
-        <SelectList
-          setSelected={(val) => setSelected(val)}
-          data={data}
-         
-          save="value"
-          inputStyles={styles.dropdownText}
-          boxStyles={styles.form}
+      <View>
+        <SelectDropdown
+          buttonStyle={styles.dropdown1BtnStyle}
+          buttonTextStyle={styles.dropdown1BtnTxtStyle}
+          data={countries}
+          dropdownStyle={styles.dropdown1DropdownStyle}
+          rowStyle={styles.dropdown1RowStyle}
+          rowTextStyle={styles.dropdown1RowTxtStyle}
+          defaultButtonText={'Select Employee'}
+
         />
       </View>
       <TextInput
-          require
-          placeholder="Email"
-          placeholderTextColor="white"
-          style={styles.textInput}
-        
-        
-        />
-          <TextInput
-          require
-          placeholder="Date"
-          placeholderTextColor="white"
-          style={styles.textInput}
-        
-        
-        />
-     
+        require
+        placeholder="Evaluation"
+        placeholderTextColor="white"
+        style={styles.textInput}
+      />
+      <TextInput
+        require
+        placeholder="1999-02-02"
+        placeholderTextColor="white"
+        style={styles.textInput}
+      />
 
-
+    
     </View>
   );
 }
