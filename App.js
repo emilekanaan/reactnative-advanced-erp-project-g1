@@ -5,6 +5,9 @@ import Login from "./component/login";
 import Home from "./component/home";
 import Reports from "./component/reports";
 import Kpi from "./component/Kpi";
+import EmployeeProject from "./component/EmployeeProject";
+import Graph from "./component/Graph";
+import KpiList from "./component/KpiList";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
@@ -14,6 +17,10 @@ export default function App() {
         <Stack.Screen name="home" component={Home} />
         <Stack.Screen name="Kpi" component={Kpi} />
         <Stack.Screen name="Reports" component={Reports} />
+        <Stack.Screen name="Graph" component={Graph} />
+        <Stack.Screen name="Employee Project" component={EmployeeProject} />
+        <Stack.Screen name="Kpi List" component={KpiList} />
+
 
      
 

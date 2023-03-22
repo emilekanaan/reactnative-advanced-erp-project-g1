@@ -1,27 +1,26 @@
 import styles from "../styles";
-import { Text, View, Dimensions, TextInput, Button, Platform } from "react-native";
+import { Text, View, TextInput, Platform } from "react-native";
 import SelectDropdown from "react-native-select-dropdown";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 export default function Kpi() {
 
 
-  const countries = ["Egypt", "Canada", "Australia", "Ireland"];
   const [isPickerShow, setIsPickerShow] = useState(false);
   const [date, setDate] = useState(new Date(Date.now()));
-
+const kpi =['project Manager','team work','comminication']
+const employee=['employee1','employee2','employee3','employee4','employee5']
   const showPicker = () => {
     setIsPickerShow(true);
   };
 
   const onChange = (event, value) => {
     setDate(value);
-    if (Platform.OS === 'android') {
+    if (Platform.OS === "android") {
       setIsPickerShow(false);
     }
   };
 
- 
   return (
     <View style={styles.HomeContainer}>
       <Text style={styles.textKpi}>Add Evaluation To Employee</Text>
@@ -29,23 +28,22 @@ export default function Kpi() {
         <SelectDropdown
           buttonStyle={styles.dropdown1BtnStyle}
           buttonTextStyle={styles.dropdown1BtnTxtStyle}
-          data={countries}
+          data={kpi}
           dropdownStyle={styles.dropdown1DropdownStyle}
           rowStyle={styles.dropdown1RowStyle}
           rowTextStyle={styles.dropdown1RowTxtStyle}
-          defaultButtonText={'Select Kpi'}
+          defaultButtonText={"Select Kpi"}
         />
       </View>
       <View>
         <SelectDropdown
           buttonStyle={styles.dropdown1BtnStyle}
           buttonTextStyle={styles.dropdown1BtnTxtStyle}
-          data={countries}
+          data={employee}
           dropdownStyle={styles.dropdown1DropdownStyle}
           rowStyle={styles.dropdown1RowStyle}
           rowTextStyle={styles.dropdown1RowTxtStyle}
-          defaultButtonText={'Select Employee'}
-
+          defaultButtonText={"Select Employee"}
         />
       </View>
       <TextInput
@@ -61,7 +59,11 @@ export default function Kpi() {
         style={styles.textInput}
       />
 
-    
+      <View style={styles.bottomContainer}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText} onClick={() => alert("Added Kpi")} >Submit</Text>
+        </View>
+      </View>
     </View>
   );
 }
