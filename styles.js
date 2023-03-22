@@ -70,7 +70,18 @@ width: "88%",
     textAlign: 'center',
     color: 'white',
     fontSize:25
-  }
+  },
+  dataTable:{
+    backgroundColor:"#4dedf570",
+    color: "white",
+  },
+  DataGrid:{
+    width:width-30,
+    marginLeft:15
+  },
+  charts:{
+ 
+    marginLeft:10  }
   
 });
 export default styles;
